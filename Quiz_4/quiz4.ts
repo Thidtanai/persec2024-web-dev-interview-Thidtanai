@@ -4,6 +4,8 @@ let autoComplete = (
   maxResult: number
 ): Array<string> => {
   search = search.toLowerCase();
+
+  // priority array
   const resultHead: Array<string> = [];
   const resultMiddle: Array<string> = [];
   const resultTail: Array<string> = [];
@@ -19,9 +21,9 @@ let autoComplete = (
     }
   }
 
+  // combined result by priority
   const combinedResults = [...resultHead, ...resultMiddle, ...resultTail];
   return combinedResults.slice(0, maxResult);
 };
 
-const testArr = ["Mother", "Think", "Worthy", "Apple", "Android"];
-console.log(autoComplete("th", testArr, 2)); //["Think", "Mother"]
+export default autoComplete;
